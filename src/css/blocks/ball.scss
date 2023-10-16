@@ -1,0 +1,48 @@
+$ballSize: 100px; // Rozmiar piłki
+$tableWidth: 3.14 * 2 * $ballSize; // Szerokość stołu jest obliczana na podstawie obwodu koła, gdzie $ballSize to jego średnica
+
+.animation {
+  animation: roll2 3s ease-in-out infinite alternate; // Animacja "roll2" będzie trwać 3 sekundy, będzie łagodna i będzie się powtarzać w sposób naprzemienny
+  transform-origin: bottom center; // Punkt odniesienia transformacji jest na dole i w środku elementu
+  width: $tableWidth; // Szerokość elementu jest ustawiana na obliczoną szerokość stołu
+
+  .table {
+    height: 50px;
+    width: $tableWidth;
+    border: 3px solid #000;
+    background-color: #ff0;
+  }
+
+  .ball::before {
+    content: "A"; // Dodaje literę "A" wewnątrz piłki
+  }
+
+  .ball {
+    width: $ballSize;
+    height: $ballSize;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #f00;
+    animation: roll 3s ease-in-out infinite alternate; // Animacja "roll" będzie trwać 3 sekundy, będzie łagodna i będzie się powtarzać w sposób naprzemienny
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0) rotate(0deg); // Początkowy stan - koło jest na lewym krańcu stołu i nie obraca się
+  }
+  100% {
+    transform: translateX($tableWidth - $ballSize) rotate(360deg); // Koło jest na prawym krańcu stołu po przejechaniu połowy szerokości stołu i obraca się o pełny obrót
+  }
+}
+
+@keyframes roll2 {
+  0% {
+    transform: rotate(
+      -5deg
+    ); // Początkowy stan - koło jest obrócone o -5 stopni
+  }
+  100% {
+    transform: rotate(5deg); // Koło jest obrócone o 5 stopni na końcu animacji
+  }
+}

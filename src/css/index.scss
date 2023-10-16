@@ -1,0 +1,28 @@
+@import "reset.scss";
+@import "variables.scss";
+
+@import "./blocks/navigation.scss";
+@import "./blocks/ball.scss";
+@import "./blocks/space.scss";
+@import "./blocks/container.scss";
+@import "./blocks/shape.scss";
+
+.btn {
+  margin-top: 100px;
+  width: 300px;
+  height: 50px;
+  background-color: red;
+  transition: opacity 1s;
+  visibility: hidden;
+  display: inline-block;
+}
+
+.sec {
+  display: inline-block;
+  visibility: visible;
+  background-color: aqua;
+}
+
+.btn:hover {
+  opacity: 0;
+}
